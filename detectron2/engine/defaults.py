@@ -295,7 +295,7 @@ class DefaultTrainer(TrainerBase):
         cfg (CfgNode):
     """
 
-    def __init__(self, cfg):
+    def __init__(self, cfg,model):
         """
         Args:
             cfg (CfgNode):
@@ -307,7 +307,7 @@ class DefaultTrainer(TrainerBase):
         cfg = DefaultTrainer.auto_scale_workers(cfg, comm.get_world_size())
 
         # Assume these objects must be constructed in this order.
-        model = self.build_model(cfg)
+#         model = self.build_model(cfg)
         optimizer = self.build_optimizer(cfg, model)
         data_loader = self.build_train_loader(cfg)
 
